@@ -8,7 +8,7 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 
 const Editor = (props) => {
   const [open, setOpen] = useState(true);
-  const { displayName, value, language, onChange } = props;
+  const { displayName, value, language, onChange, download } = props;
   const handleChange = (editor, data, value) => {
     onChange(value);
   };
@@ -16,10 +16,12 @@ const Editor = (props) => {
     <div className={`editor-container ${open ? '' : 'collapsed'}`}>
       <div className="editor-title">
         {displayName}
+
         <button
           onClick={() => {
             setOpen((prev) => !prev);
           }}
+          className="btn-collapse"
         >
           {open ? 'X' : 'O'}
         </button>
